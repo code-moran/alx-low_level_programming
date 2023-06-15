@@ -1,0 +1,2 @@
+#!/bin/bash
+gcc "$CFILE" -o $(basename "$CFILE" | cut -d. -f1).o
