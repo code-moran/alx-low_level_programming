@@ -17,8 +17,8 @@ int main(void)
 		/* Iterate through the second number */
 		for (num2 = 0; num2 <= 99; num2++)
 		{
-			/* Print combination if first number is less than or equal to the second number */
-			if (num1 <= num2)
+
+			if (num1 != num2)
 			{
 				putchar(num1 / 10 + '0');
 				putchar(num1 % 10 + '0');
