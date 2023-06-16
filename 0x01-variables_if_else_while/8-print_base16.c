@@ -4,7 +4,7 @@
  * main - Entry point
  *
  * Description: Prints all numbers of base 16 (hexadecimal) in lowercase,.
- * 
+ *
  * Return: Always 0 (Success)
  */
 int main(void)
@@ -22,7 +22,7 @@ int main(void)
 	{
 		putchar(digit);
 	}
-	
+
 	putchar('\n');
 
 	return (0);
