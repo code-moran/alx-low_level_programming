@@ -27,7 +27,7 @@ int main(void)
 				putchar(num2 % 10 + '0');
 
 				/* Print comma and space for all combinations except the last one */
-				if (num1 != 99 || num2 != 99)
+				if (num1 != 99 && num2 != 99)
 				{
 					putchar(',');
 					putchar(' ');
