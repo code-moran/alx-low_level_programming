@@ -10,10 +10,10 @@ void times_table(void)
 	for (row = 0; row <= 9; row++)
 	{
 		_putchar('0'); /* Print the first digit */
+		_putchar(',');
 
 		for (column = 1; column <= 9; column++)
 		{
-			_putchar(',');
 			_putchar(' ');
 
 			product = row * column;
@@ -21,7 +21,6 @@ void times_table(void)
 			if (product <= 9)
 			{
 				_putchar(' '); /* Print leading space for single-digit numbers */
-				_putchar(' '); /* Print an extra space for alignment */
 			}
 			else
 			{
@@ -29,6 +28,12 @@ void times_table(void)
 			}
 
 			_putchar((product % 10) + '0'); /* Print the ones digit */
+
+			if (column < 9)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
 		}
 
 		_putchar('\n');
