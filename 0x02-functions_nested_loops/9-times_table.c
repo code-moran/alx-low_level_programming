@@ -6,6 +6,7 @@
 void times_table(void)
 {
 	int row, column, product;
+
 	for (row = 0; row <= 9; row++)
 	{
 		_putchar('0'); /* Print the first digit */
@@ -25,7 +26,7 @@ void times_table(void)
 			{
 				_putchar((product / 10) + '0'); /* Print the tens digit */
 			}
-			
+
 			_putchar((product % 10) + '0'); /* Print the ones digit */
 
 			if (column < 9)
@@ -37,4 +38,3 @@ void times_table(void)
 		_putchar('\n');
 	}
 }
-
