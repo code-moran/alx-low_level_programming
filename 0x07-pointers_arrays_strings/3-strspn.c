@@ -3,7 +3,7 @@
  * @s: Pointer to the string to be checked
  * @accept: Pointer to the string containing the accepted characters
  *
- * Return: Number of bytes in the initial segment of s consisting only of bytes from accept
+ * Return: Number of bytes in the initial segment of s
  */
 unsigned int _strspn(char *s, char *accept)
 {
