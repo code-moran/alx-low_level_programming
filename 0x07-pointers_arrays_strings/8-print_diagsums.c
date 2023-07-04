@@ -13,7 +13,7 @@ void print_diagsums(int *a, int size)
 {
 	int sum1 = 0;	/* Sum of the main diagonal */
 	int sum2 = 0;	/* Sum of the secondary diagonal */
-	int i, j;
+	int i;
 
 	/* Calculate the sums of the diagonals */
 	for (i = 0; i < size; i++)
