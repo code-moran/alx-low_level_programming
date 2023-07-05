@@ -2,11 +2,11 @@
 #include "main.h"
 
 /**
- * _puts_recursion - Prints a string followed by a new line using recursion.
+ * _puts_recursion - Prints a string followed by a new line
  * @s: The string to be printed.
  *
- * Description: This function prints each character of the string @s recursively.
- *              When the end of string is reached, it prints a new line character.
+ * Description: This function prints each character of the string @s.
+ * 
  */
 void _puts_recursion(char *s)
 {
@@ -16,5 +16,5 @@ void _puts_recursion(char *s)
 	}
 
 	printf("%c", *s);	/* Print the current character */
-	_puts_recursion(s + 1);	/* Call the function recursively with the next character */
+	_puts_recursion(s + 1);	/* Call the function recursively */
 }
