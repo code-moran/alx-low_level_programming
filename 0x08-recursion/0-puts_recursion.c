@@ -6,11 +6,12 @@
  * @s: The string to be printed.
  *
  * Description: This function prints each character of the string @s.
- * 
+ *
  */
 void _puts_recursion(char *s)
 {
-	if (*s == '\0') {
+	if (*s == '\0') 
+	{
 		printf("\n");	/* Print a new line when the end of string is reached */
 		return;
 	}
