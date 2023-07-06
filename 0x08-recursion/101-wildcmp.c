@@ -1,5 +1,5 @@
 /**
- * wildcmp - Compares two strings and checks if they can be considered identical
+ * wildcmp - Compares two strings
  * @s1: First string
  * @s2: Second string (may contain the wildcard character *)
  *
