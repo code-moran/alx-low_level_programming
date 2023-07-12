@@ -12,7 +12,7 @@ char *argstostr(int ac, char **av)
 {
 	char *str;
 	int i, j, len, total_len = 0;
-	int newline_count = ac - 1; /* Number of newlines to add */
+	int newline_count = ac; /* Number of newlines to add */
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
@@ -27,7 +27,7 @@ char *argstostr(int ac, char **av)
 	}
 
 	/* Add space for newlines and null terminator */
-	total_len += newline_count + 1;
+	total_len += newline_count + 3; /* Add 2 for extra newlines and 1 for null terminator */
 
 	str = malloc(total_len * sizeof(char));
 
@@ -44,13 +44,12 @@ char *argstostr(int ac, char **av)
 			len++;
 		}
 
-		if (i != ac - 1) /* Add newline if not the last argument */
-		{
-			str[len] = '\n';
-			len++;
-		}
+		str[len] = '\n';
+		len++;
 	}
 
+	str[len] = '\n'; /* Add the extra newline */
+	len++;
 	str[len] = '\0';
 
 	return (str);
