@@ -1,56 +1,47 @@
 #include <stdlib.h>
-#include "main.h"
+#include <stdio.h>
+#include <string.h>
 
 /**
- * argstostr - Concatenates all the arguments of the program.
- * @ac: The number of arguments.
- * @av: The array of arguments.
+ * argstostr - Concatenates all arguments of a program
+ * @ac: The argument count
+ * @av: The argument vector
  *
- * Return: A pointer to the concatenated string, or NULL if it fails.
+ * Return: Pointer to a new string or NULL if it fails
  */
 char *argstostr(int ac, char **av)
 {
 	char *str;
-	int i, j, len, total_len = 0;
-	int newline_count = ac; /* Number of newlines to add */
+	int i, j, k, len, total_len = 0;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	/* Calculate the total length of the arguments */
+	/* Calculate the total length of the concatenated string */
 	for (i = 0; i < ac; i++)
 	{
-		len = 0;
-		while (av[i][len])
-			len++;
-		total_len += len;
+		len = strlen(av[i]);
+		total_len += len + 1; /* Add 1 for newline character */
 	}
 
-	/* Add space for newlines and null terminator */
-	total_len += newline_count + 3; /* Add 2 for extra newlines and 1 for null terminator */
-
 	str = malloc(total_len * sizeof(char));
-
 	if (str == NULL)
 		return (NULL);
 
-	len = 0;
-
+	k = 0;
 	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j]; j++)
+		len = strlen(av[i]);
+		for (j = 0; j < len; j++)
 		{
-			str[len] = av[i][j];
-			len++;
+			str[k] = av[i][j];
+			k++;
 		}
-
-		str[len] = '\n';
-		len++;
+		str[k] = '\n'; /* Add newline character */
+		k++;
 	}
 
-	str[len] = '\n'; /* Add the extra newline */
-	len++;
-	str[len] = '\0';
+	str[k] = '\0'; /* Add null terminator */
 
 	return (str);
 }
