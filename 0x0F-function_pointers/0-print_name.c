@@ -6,10 +6,7 @@
  * @name: Pointer to the name to be printed.
  * @f: Pointer to a function that takes a char* argument and returns void.
  *
- * This function takes a name and a pointer to a function as parameters. It
- * calls the function pointed by 'f' passing the 'name' as an argument to print
- * the name according to the implementation of the provided function 'f'.
- * If 'name' or 'f' is NULL, the function does nothing.
+ * This function takes a name and a pointer to a function.
  */
 void print_name(char *name, void (*f)(char *)) {
 	if (name != NULL && f != NULL) {
