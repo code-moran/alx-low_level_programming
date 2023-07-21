@@ -8,8 +8,10 @@
  *
  * This function takes a name and a pointer to a function.
  */
-void print_name(char *name, void (*f)(char *)) {
-	if (name != NULL && f != NULL) {
+void print_name(char *name, void (*f)(char *)) 
+{
+	if (name != NULL && f != NULL) 
+	{
 		f(name);
 	}
 }
