@@ -6,7 +6,7 @@
  */
 void print_diagonal(int n)
 {
-	int spaces;
+	int spaces, lines;
 
 	if (n <= 0)
 	{
@@ -14,15 +14,14 @@ void print_diagonal(int n)
 		return;
 	}
 
-	while (n > 0)
+	for (lines = 0; lines < n; lines++)
 	{
-		for (spaces = 0; spaces < (n - 1); spaces++)
+		for (spaces = 0; spaces < lines; spaces++)
 		{
 			_putchar(' ');
 		}
 		_putchar('\\');
 		_putchar('\n');
-		n--;
 	}
 }
 
