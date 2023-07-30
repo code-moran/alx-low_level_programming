@@ -1,7 +1,33 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 #include "dog.h"
+
+/**
+ * _strdup - Duplicates a string in memory.
+ * @str: The string to duplicate.
+ *
+ * Return: Pointer to the newly duplicated string, or NULL if failed.
+ */
+char *_strdup(char *str)
+{
+	char *duplicate;
+	int len, i;
+
+	if (str == NULL)
+		return (NULL);
+
+	len = strlen(str);
+	duplicate = malloc(sizeof(char) * (len + 1));
+
+	if (duplicate == NULL)
+		return (NULL);
+
+	for (i = 0; i <= len; i++)
+		duplicate[i] = str[i];
+
+	return (duplicate);
+}
 
 /**
  * new_dog - Creates a new dog.
@@ -23,7 +49,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	/* Duplicate name and owner strings */
-	new_dog->name = strdup(name);
+	new_dog->name = _strdup(name);
 	if (new_dog->name == NULL)
 	{
 		free(new_dog);
@@ -32,7 +58,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	new_dog->age = age;
 
-	new_dog->owner = strdup(owner);
+	new_dog->owner = _strdup(owner);
 	if (new_dog->owner == NULL)
 	{
 		free(new_dog->name);
