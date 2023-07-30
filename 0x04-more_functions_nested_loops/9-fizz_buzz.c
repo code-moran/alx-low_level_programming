@@ -3,9 +3,7 @@
 /**
  * main - Entry point of the program
  *
- * Description: Prints numbers from 1 to 100. For multiples of 3, prints "Fizz".
- * For multiples of 5, prints "Buzz". For multiples of both 3 and 5, prints "FizzBuzz".
- * Each number or word is separated by a space. The output ends with a new line.
+ * Description: Fizz-Buzz test
  *
  * Return: Always 0 (Success)
  */
