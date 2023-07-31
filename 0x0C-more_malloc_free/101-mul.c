@@ -20,7 +20,7 @@ char *multiply(const char *num1, const char *num2) {
 	int j;
 
 	if (!result) {
-		return (NULL);	/* Memory allocation failed */
+		return (NULL);
 	}
 
 	/* Perform multiplication digit by digit */
@@ -40,11 +40,11 @@ char *multiply(const char *num1, const char *num2) {
 	strResult = malloc((len + 1) * sizeof(char));
 	if (!strResult) {
 		free(result);
-		return (NULL);	/* Memory allocation failed */
+		return (NULL);
 	}
 
 	while (index < len && result[index] == 0) {
-		index++;	/* Skip leading zeros */
+		index++;
 	}
 
 	if (index == len) {
