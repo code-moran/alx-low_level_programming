@@ -9,6 +9,61 @@
  *
  * Return: The product as a string, or NULL if there's an error.
  */
+char *multiply(const char *num1, const char *num2);
+
+/**
+ * check_digits - Checks if a string contains only digits.
+ * @str: The string to check.
+ *
+ * Return: 1 if all characters are digits, 0 otherwise.
+ */
+int check_digits(const char *str);
+
+/**
+ * main - Entry point of the program.
+ * @argc: The number of command-line arguments.
+ * @argv: An array of strings representing the arguments.
+ *
+ * Return: Always 0 on success, 98 on error.
+ */
+int main(int argc, char *argv[])
+{
+	char *num1 = argv[1];
+	char *num2 = argv[2];
+	char *result;
+
+	if (argc != 3)
+	{
+		printf("Error\n");
+		return (98);
+	}
+
+	if (!check_digits(num1) || !check_digits(num2))
+	{
+		printf("Error\n");
+		return (98);
+	}
+
+	result = multiply(num1, num2);
+	if (result == NULL)
+	{
+		printf("Error\n");
+		return (98);
+	}
+
+	printf("%s\n", result);
+	free(result);
+
+	return (0);
+}
+
+/**
+ * multiply - Multiplies two positive numbers represented as strings.
+ * @num1: The first number as a string.
+ * @num2: The second number as a string.
+ *
+ * Return: The product as a string, or NULL if there's an error.
+ */
 char *multiply(const char *num1, const char *num2)
 {
 	int len1 = strlen(num1);
@@ -73,55 +128,21 @@ char *multiply(const char *num1, const char *num2)
 }
 
 /**
- * main - Entry point of the program.
- * @argc: The number of command-line arguments.
- * @argv: An array of strings representing the arguments.
+ * check_digits - Checks if a string contains only digits.
+ * @str: The string to check.
  *
- * Return: Always 0 on success, 98 on error.
+ * Return: 1 if all characters are digits, 0 otherwise.
  */
-int main(int argc, char *argv[])
+int check_digits(const char *str)
 {
-	char *num1 = argv[1];
-	char *num2 = argv[2];
 	int i;
-	char *result;
 
-	if (argc != 3)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		printf("Error\n");
-		return (98);
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
 	}
 
-	/* Check if num1 and num2 are composed of digits */
-	for (i = 0; num1[i] != '\0'; i++)
-	{
-		if (num1[i] < '0' || num1[i] > '9')
-		{
-			printf("Error\n");
-			return (98);
-		}
-	}
-
-	for (i = 0; num2[i] != '\0'; i++)
-	{
-		if (num2[i] < '0' || num2[i] > '9')
-		{
-			printf("Error\n");
-			return (98);
-		}
-	}
-
-	result = multiply(num1, num2);
-
-	if (result == NULL)
-	{
-		printf("Error\n");
-		return (98);
-	}
-
-	printf("%s\n", result);
-	free(result);
-
-	return (0);
+	return (1);
 }
 
