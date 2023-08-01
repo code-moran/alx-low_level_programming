@@ -3,8 +3,7 @@
 #include <time.h>
 
 /**
- * main - program that generates random valid
- * passwords for the program 101-crackme
+ * main - a program that generates random valid passwords for the program 101-crackme.
  *
  * Return: Always 0 (Success)
  */
@@ -17,7 +16,9 @@ int main(void)
 
 	srand(time(NULL));
 
-	for (i = 0; i < 100; i++)
+	i = 0;
+
+	while (i < 100)
 	{
 		pwd[i] = rand() % 78;
 		sum += (pwd[i] + '0');
@@ -29,6 +30,7 @@ int main(void)
 			putchar(j + '0');
 			break;
 		}
+		i++;
 	}
 
 	return (0);
