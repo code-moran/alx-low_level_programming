@@ -17,16 +17,10 @@ void print_number(int n)
 
 	temp = n;
 
-	while (temp >= 10)
+	if (temp / 10 != 0)
 	{
-		power *= 10;
-		temp /= 10;
+		print_number(temp / 10);
 	}
-
-	while (power > 0)
-	{
-		_putchar((n / power) % 10 + '0');
-		power /= 10;
-	}
+	_putchar((temp % 10) + '0');
 }
 
