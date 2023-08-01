@@ -6,7 +6,6 @@
  */
 void print_number(int n)
 {
-	int power = 1;
 	unsigned int temp;
 
 	if (n < 0)
