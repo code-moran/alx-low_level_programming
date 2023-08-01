@@ -3,31 +3,33 @@
 #include <time.h>
 
 /**
- * main - program that generates a random valid password
- * for the program 101-crackme
+ * main - program that generates random valid
+ * passwords for the program 101-crackme
  *
- * Return: (0) on success
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	const char valid_chars[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-={}[]|;:,.<>?";
-	const int valid_chars_count = sizeof(valid_chars) - 1;
-	int password_length = 12;	// Change this value to set the desired password length
-	char password[password_length + 1];
-	int i, random_index;
+	int pwd[100];
+	int i, sum, j;
+
+	sum = 0;	
 
 	srand(time(NULL));
 
-	for (i = 0; i < password_length; i++)
+	for (i = 0; i < 100; i++)
 	{
-		random_index = rand() % valid_chars_count;
-		password[i] = valid_chars[random_index];
+		pwd[i] = rand() % 78;
+		sum += (pwd[i] + '0');
+		putchar(pwd[i] + '0');
+		if ((2772 - sum) - '0' < 78)
+		{
+			j = 2772 - sum - '0';
+			sum += j;
+			putchar(j + '0');
+			break;
+		}
 	}
-
-	password[password_length] = '\0';
-
-	printf("Generated password: %s\n", password);
 
 	return (0);
 }
-
