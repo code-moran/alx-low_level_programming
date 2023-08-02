@@ -8,32 +8,22 @@
  */
 char *rot13(char *str)
 {
-	char *input = str;
-	char *output = str;
-	int index;
-	char *lowercase = "abcdefghijklmnopqrstuvwxyz";
-	char *uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char ch;
-	char *base;
+	int i;
+	int j;
+	char b[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char c[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	while (*input)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		ch = *input;
-
-		if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+		for (j = 0; j < 52; j++)
 		{
-			base = (ch >= 'a' && ch <= 'z') ? lowercase : uppercase;
-
-			index = (ch - base[0] + 13) % 26;
-			ch = base[index];
+			if (s[i] == b[j])
+			{
+				s[i] = c[j];
+				break;
+			}
 		}
-
-		*output = ch;
-		input++;
-		output++;
 	}
-
-	*output = '\0';
-	return (str);
+	return (s);
 }
 
