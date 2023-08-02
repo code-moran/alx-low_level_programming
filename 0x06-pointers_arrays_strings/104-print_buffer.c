@@ -4,6 +4,7 @@
 void print_buffer(char *b, int size)
 {
 	int i, j;
+	char c;
 
 	if (size <= 0)
 	{
@@ -30,7 +31,7 @@ void print_buffer(char *b, int size)
 		{
 			if (i + j < size)
 			{
-				char c = b[i + j];
+				c = b[i + j];
 
 				if (!isprint(c))
 					c = '.';
