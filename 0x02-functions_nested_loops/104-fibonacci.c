@@ -1,43 +1,5 @@
 #include <stdio.h>
 
-#define MAX_DIGITS 1000
-
-/**
- * add_arrays - Adds two arrays of digits and stores the result in res.
- *
- * @a: The first array of digits.
- * @b: The second array of digits.
- * @res: The array to store the result.
- */
-void add_arrays(int a[], int b[], int res[])
-{
-	int carry = 0;
-	int i;
-	int sum;
-
-	for (i = MAX_DIGITS - 1; i >= 0; i--)
-	{
-		sum = a[i] + b[i] + carry;
-		res[i] = sum % 10;
-		carry = sum / 10;
-	}
-}
-
-/**
- * print_array - Prints an array of digits.
- *
- * @arr: The array of digits to print.
- */
-void print_array(int arr[])
-{
-	int i = 0;
-	while (i < MAX_DIGITS - 1 && arr[i] == 0)
-		i++;
-
-	for (; i < MAX_DIGITS; i++)
-		printf("%d", arr[i]);
-}
-
 /**
  * main - Finds and prints the first 98 Fibonacci numbers.
  *
@@ -45,29 +7,43 @@ void print_array(int arr[])
  */
 int main(void)
 {
-	int i, j;
-	int fib1[MAX_DIGITS] = {0};
-	int fib2[MAX_DIGITS] = {0};
-	int result[MAX_DIGITS] = {0};
+	int i;
+	unsigned long fib1 = 0, fib2 = 1, sum;
+	unsigned long fib1_half1, fib1_half2, fib2_half1, fib2_half2;
+	unsigned long half1, half2;
 
-	fib2[MAX_DIGITS - 1] = 1;
 
-	printf("1");
-	for (i = 2; i <= 98; i++)
+	for (i = 0; i < 92; i++)
 	{
-		add_arrays(fib1, fib2, result);
-		printf(", ");
-		print_array(result);
+		sum = fib1 + fib2;
+		printf("%lu, ", sum);
 
-		for (j = 0; j < MAX_DIGITS; j++)
-		{
-			fib1[j] = fib2[j];
-			fib2[j] = result[j];
-		}
+		fib1 = fib2;
+		fib2 = sum;
 	}
+	fib1_half1 = fib1 / 10000000000;
+	fib2_half1 = fib2 / 10000000000;
+	fib1_half2 = fib1 % 10000000000;
+	fib2_half2 = fib2 % 10000000000;
 
+	for (i = 93; i < 99; i++)
+	{
+		half1 = fib1_half1 + fib2_half1;
+		half2 = fib1_half2 + fib2_half2;
+		if (fib1_half2 + fib2_half2 > 9999999999)
+		{
+			half1 += 1;
+			half2 %= 10000000000;
+		}
+		printf("%lu%lu", half1, half2);
+		if (i != 98)
+			printf(", ");
+		fib1_half1 = fib2_half1;
+		fib1_half2 = fib2_half2;
+		fib2_half1 = half1;
+		fib2_half2 = half2;
+	}
 	printf("\n");
-
 	return (0);
 }
 
