@@ -1,5 +1,12 @@
 #include <stdio.h>
 
+/**
+ * main - Entry point
+ *
+ * Description: Generates a random number and prints its last digit.
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	int n;
