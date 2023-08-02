@@ -13,14 +13,16 @@ char *rot13(char *str)
 	int index;
 	char *lowercase = "abcdefghijklmnopqrstuvwxyz";
 	char *uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char ch;
+	char *base;
 
 	while (*input)
 	{
-		char ch = *input;
+		ch = *input;
 
 		if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
 		{
-			char *base = (ch >= 'a' && ch <= 'z') ? lowercase : uppercase;
+			base = (ch >= 'a' && ch <= 'z') ? lowercase : uppercase;
 
 			index = (ch - base[0] + 13) % 26;
 			ch = base[index];
