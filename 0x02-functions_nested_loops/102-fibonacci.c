@@ -20,7 +20,9 @@ int main(void)
 
 	for (i = 0; i < 49; i++)
 	{
-		printf("%d, ", fib[i]);
+		printf("%d", fib[i]);
+		if (i < 48)
+			printf(", ");
 	}
 	printf("%d\n", fib[49]);
 
